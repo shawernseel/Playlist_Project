@@ -49,9 +49,6 @@ class PlaylistTest {
         assertEquals(2, testPlaylist.getSongList().size());
     }
 
-    // REQUIRES: list is not empty, song only appears once in playlist
-    // MODIFIES: this
-    // EFFECTS: removes a given song from the playlist
     @Test
     public void testRemoveSongFromPlaylist() {
             assertFalse(testPlaylist.removeSongFromPlaylist("Hey Ya!"));
