@@ -45,7 +45,7 @@ public class PlaylistManagerApp {
     // EFFECTS: processes user command
     private void processCommand(String command) {
         if (command.equals("v")) {
-            doView();
+            doViewPlaylists();
         } else if (command.equals("s")) {
             doSelectPlaylist();
         } else if (command.equals("r")) {
@@ -58,9 +58,12 @@ public class PlaylistManagerApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes accounts
+    // EFFECTS: initializes account
     private void init() {
-
+        account = new Account("Joe");
+        selectedPlaylist = new Playlist("Starter Playlist");
+        input = new Scanner(System.in);
+        input.useDelimiter("\n");
     }
 
     // EFFECTS: displays menu of options to user
@@ -73,8 +76,15 @@ public class PlaylistManagerApp {
         System.out.println("\tq -> quit");
     }
 
-    private void doView() {
-
+    private void doViewPlaylists() {
+        System.out.println("\nPlaylists:");
+        if (account.getPlaylists().size() == 0) {
+            System.out.println("\tthere are no playlists!");
+        } else {
+            for (Playlist playlist : account.getPlaylists()) {
+                System.out.println("\t" + playlist.getName());
+            }
+        }
     }
 
     private void doSelectPlaylist() {
@@ -82,11 +92,20 @@ public class PlaylistManagerApp {
     }
 
     private void doRemovePlaylist() {
-
+        System.out.print("Enter the playlist you wish to remove: ");
+        String playlistName = input.next();
+        if (account.removePlaylist(playlistName)) {
+            System.out.println("Removed Playlist " + playlistName + "\n");
+        } else {
+            System.out.println("Playlist doesn't exist\n");
+        }
     }
 
     private void doAddPlaylist() {
-
+        System.out.print("Enter a name for your playlist: ");
+        String playlistName = input.next();
+        account.createPlaylist(playlistName);
+        System.out.println("Created a new Playlist!\n");
     }
 
 
