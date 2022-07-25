@@ -28,7 +28,7 @@ public class Account {
 
     // REQUIRES: playlist name only appears once in account
     // EFFECTS: if playlist name is in account returns playlist
-    // else throw PlaylistDoesntExistError
+    // else throw PlaylistDoesNotExistError
     public Playlist returnPlaylist(String playlistName) throws PlaylistDoesNotExistError {
         for (Playlist playlist : playlists) {
             if (playlist.getName().equals(playlistName)) {
