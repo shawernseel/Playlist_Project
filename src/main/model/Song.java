@@ -23,7 +23,19 @@ public class Song {
         return title;
     }
 
+    // EFFECTS: returns name of artist
+    public String getArtistName() {
+        return artistName;
+    }
 
+    // EFFECTS: returns name of album
+    public String getAlbumName() {
+        return albumName;
+    }
 
+    // EFFECTS: returns length of song in seconds
+    public int getLength() {
+        return length;
+    }
 
 }

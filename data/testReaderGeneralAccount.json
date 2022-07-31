@@ -1,0 +1,33 @@
+{
+  "accountName": "joeAccount",
+  "playlists": [
+    {
+      "name": "p1",
+      "songList": [
+        {
+          "title": "Hey Ya!",
+          "artistName": "Outkast",
+          "albumName": "Speakerboxxx/The Love Below",
+          "length": 235
+        }
+      ]
+    },
+    {
+      "name": "p2",
+      "songList": [
+        {
+          "title": "Wouldn't It Be Nice",
+          "artistName": "The Beach Boys",
+          "albumName": "Pet Sounds",
+          "length": 145
+        },
+        {
+          "title": "The Spins",
+          "artistName": "Mac Miller",
+          "albumName": "K.I.D.S.",
+          "length": 203
+        }
+      ]
+    }
+  ]
+}

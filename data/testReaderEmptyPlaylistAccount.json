@@ -1,0 +1,13 @@
+{
+  "accountName": "joeAccount",
+  "playlists": [
+    {
+      "name": "p1",
+      "songList": []
+    },
+    {
+      "name": "p2",
+      "songList": []
+    }
+  ]
+}

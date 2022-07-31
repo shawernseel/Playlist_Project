@@ -9,10 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AccountTest {
     private Account joe;
+    private Playlist playlist;
 
     @BeforeEach
     public void beforeEach() {
         joe = new Account("Joe");
+        playlist = new Playlist("playlist");
     }
 
     @Test
@@ -30,6 +32,13 @@ public class AccountTest {
         assertEquals("New Playlist", joe.getPlaylists().get(0).getName());
         assertEquals("2nd Playlist", joe.getPlaylists().get(1).getName());
         assertEquals(2, joe.getPlaylists().size());
+    }
+
+    @Test
+    public void addPlaylistTest() {
+        joe.addPlaylist(playlist);
+        assertEquals("playlist", joe.getPlaylists().get(0).getName());
+        assertEquals(1, joe.getPlaylists().size());
     }
 
     @Test

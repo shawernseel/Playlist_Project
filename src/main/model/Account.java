@@ -19,10 +19,21 @@ public class Account {
         return playlists;
     }
 
+    // EFFECTS: returns list of currently made playlist
+    public String getAccountName() {
+        return accountName;
+    }
+
     // MODIFIES: this
     // EFFECTS: creates a new playlist to the list of playlists
     public void createPlaylist(String name) {
         Playlist playlist = new Playlist(name);
+        playlists.add(playlist);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds a playlist to the list of playlists
+    public void addPlaylist(Playlist playlist) {
         playlists.add(playlist);
     }
 
