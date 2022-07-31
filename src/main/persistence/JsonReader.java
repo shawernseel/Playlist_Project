@@ -50,7 +50,7 @@ public class JsonReader {
         return account;
     }
 
-    // MODIFIES: wr
+    // MODIFIES: account
     // EFFECTS: parses Playlists from JSON object and adds them to account
     private void addPlaylists(Account account, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("playlists");
@@ -68,7 +68,7 @@ public class JsonReader {
         account.addPlaylist(playlist);
     }
 
-    // MODIFIES: wr
+    // MODIFIES: playlist
     // EFFECTS: parses songList from JSON object and adds them to Playlist
     private void addSongList(Playlist playlist, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("songList");
@@ -78,7 +78,7 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: wr
+    // MODIFIES: playlist
     // EFFECTS: parses Song from JSON object and adds it to songList
     private void addSong(Playlist playlist, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
