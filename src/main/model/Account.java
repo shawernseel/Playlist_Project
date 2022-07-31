@@ -1,11 +1,14 @@
 package model;
 
 import exceptions.PlaylistDoesNotExistError;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 import java.util.ArrayList;
 
 // Represents an account with a name that holds a list of playlists
-public class Account {
+public class Account implements Writable {
     private final String accountName;
     private ArrayList<Playlist> playlists;
 
@@ -62,5 +65,24 @@ public class Account {
             }
         }
         return false;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("accountName", accountName);
+        json.put("playlists", playlistsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns playlists in this account as a JSON array
+    private JSONArray playlistsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Playlist p : playlists) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 }
