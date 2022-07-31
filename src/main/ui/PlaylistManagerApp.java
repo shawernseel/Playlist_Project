@@ -4,16 +4,23 @@ import exceptions.PlaylistDoesNotExistError;
 import model.Account;
 import model.Playlist;
 import model.Song;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Song playlist Application
 // based on Teller app; link below
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp
 public class PlaylistManagerApp {
+    private static final String JSON_STORE = "./data/account.json";
     private Account account;
     private Scanner input;
     private Playlist selectedPlaylist;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the playlist manager application
     public PlaylistManagerApp() {
@@ -44,26 +51,12 @@ public class PlaylistManagerApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes user command
-    private void processCommand(String command) {
-        if (command.equals("v")) {
-            doViewPlaylists();
-        } else if (command.equals("s")) {
-            doSelectPlaylist();
-        } else if (command.equals("r")) {
-            doRemovePlaylist();
-        } else if (command.equals("a")) {
-            doAddPlaylist();
-        } else {
-            System.out.println("Selection not valid...");
-        }
-    }
-
-    // MODIFIES: this
     // EFFECTS: initializes account
     private void init() {
-        account = new Account("Joe");
         input = new Scanner(System.in);
+        account = new Account("BlueDudeDaniel");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         input.useDelimiter("\n");
     }
 
@@ -71,10 +64,32 @@ public class PlaylistManagerApp {
     private void displayMenu() {
         System.out.println("\nSelect from:");
         System.out.println("\tv -> view playlists");
-        System.out.println("\ts -> select a playlist");
+        System.out.println("\tp -> select a playlist");
         System.out.println("\tr -> remove a playlist");
         System.out.println("\ta -> add a playlist");
+        System.out.println("\ts -> save account to file");
+        System.out.println("\tl -> load account from file");
         System.out.println("\tq -> quit");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: processes user command
+    private void processCommand(String command) {
+        if (command.equals("v")) {
+            doViewPlaylists();
+        } else if (command.equals("p")) {
+            doSelectPlaylist();
+        } else if (command.equals("r")) {
+            doRemovePlaylist();
+        } else if (command.equals("a")) {
+            doAddPlaylist();
+        } else if (command.equals("s")) {
+            saveAccount();
+        } else if (command.equals("l")) {
+            loadAccount();
+        } else {
+            System.out.println("Selection not valid...");
+        }
     }
 
     // EFFECTS: displays list of playlists made
@@ -165,7 +180,7 @@ public class PlaylistManagerApp {
 
     // EFFECTS: displays songs in a playlist
     private void doViewSongs() {
-        System.out.println("\nPlaylists:");
+        System.out.println("\nSongs in " + selectedPlaylist.getName() + ":");
         if (selectedPlaylist.getSongList().size() == 0) {
             System.out.println("\tthere are no songs in this playlist!");
         } else {
@@ -228,5 +243,26 @@ public class PlaylistManagerApp {
         System.out.println("Created a new Playlist!\n");
     }
 
+    // EFFECTS: saves account to file
+    private void saveAccount() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(account);
+            jsonWriter.close();
+            System.out.println("Saved " + account.getAccountName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
 
+    // MODIFIES: this
+    // EFFECTS: loads account from file
+    private void loadAccount() {
+        try {
+            account = jsonReader.read();
+            System.out.println("Loaded " + account.getAccountName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
 }

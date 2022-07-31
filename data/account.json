@@ -1,0 +1,44 @@
+{
+    "accountName": "BlueDudeDaniel",
+    "playlists": [
+        {
+            "name": "SUMMER VIBES",
+            "songList": [
+                {
+                    "albumName": "Destiny",
+                    "length": 214,
+                    "artistName": "The Jacksons",
+                    "title": "Blame It on the Boogie"
+                },
+                {
+                    "albumName": "Drunk",
+                    "length": 193,
+                    "artistName": "Thundercat",
+                    "title": "Friend Zone"
+                },
+                {
+                    "albumName": "Lonerism",
+                    "length": 193,
+                    "artistName": "Tame Impala",
+                    "title": "Feels Like We Only Go Backwards"
+                }
+            ]
+        },
+        {
+            "name": "BANGERZ",
+            "songList": []
+        },
+        {
+            "name": "The Skate Shop",
+            "songList": []
+        },
+        {
+            "name": "2010s Throwbacks",
+            "songList": []
+        },
+        {
+            "name": "AFROBEATS 2022",
+            "songList": []
+        }
+    ]
+}

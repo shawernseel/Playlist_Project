@@ -1,0 +1,31 @@
+{
+    "accountName": "a1",
+    "playlists": [
+        {
+            "name": "p1",
+            "songList": [
+                {
+                    "albumName": "a1",
+                    "length": 1,
+                    "artistName": "n1",
+                    "title": "s1"
+                },
+                {
+                    "albumName": "a2",
+                    "length": 2,
+                    "artistName": "n2",
+                    "title": "s2"
+                }
+            ]
+        },
+        {
+            "name": "p2",
+            "songList": [{
+                "albumName": "a3",
+                "length": 3,
+                "artistName": "n3",
+                "title": "s3"
+            }]
+        }
+    ]
+}
