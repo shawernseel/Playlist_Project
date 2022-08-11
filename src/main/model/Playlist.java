@@ -38,6 +38,7 @@ public class Playlist implements Writable {
     // EFFECTS: adds a song to playlist (at the end)
     public void addSongToPlaylist(Song song) {
         songList.add(song);
+        EventLog.getInstance().logEvent(new Event("Added Song to Playlist"));
     }
 
     // REQUIRES: song name only appears once in playlist
@@ -48,6 +49,7 @@ public class Playlist implements Writable {
         for (int i = 0; i < songList.size(); i++) {
             if (songList.get(i).getTitle().equals(songName)) {
                 songList.remove(i);
+                EventLog.getInstance().logEvent(new Event("Removed Song from Playlist"));
                 return true;
             }
         }

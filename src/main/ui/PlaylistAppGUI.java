@@ -1,6 +1,8 @@
 package ui;
 
 import model.Account;
+import model.Event;
+import model.EventLog;
 import model.Playlist;
 import model.Song;
 
@@ -8,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 import persistence.JsonReader;
@@ -18,6 +22,8 @@ import java.io.IOException;
 
 // GUI for Playlist Application
 public class PlaylistAppGUI extends JFrame {
+
+//    PlaylistAppGUI jFrame = new PlaylistAppGUI();
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 750;
@@ -266,6 +272,7 @@ public class PlaylistAppGUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: sets up the window for playlist application
     public void setWindow() {
+        printLogOnQuit();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
         setResizable(false);
@@ -418,4 +425,19 @@ public class PlaylistAppGUI extends JFrame {
         loadPanel.setBackground(Color.RED);
         setChangingPanel(loadPanel);
     }
+
+    // EFFECTS: prints EventLog on exit
+    public void printLogOnQuit() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                EventLog eventLog = EventLog.getInstance();
+                for (Event event : eventLog) {
+                    System.out.println(event.toString());
+                }
+                System.exit(0);
+            }
+        });
+    }
+
 }

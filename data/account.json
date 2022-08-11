@@ -1,20 +1,12 @@
 {
     "accountName": "BlueDudeDaniel",
     "playlists": [{
-        "name": "asdfasdfasdfsdf",
-        "songList": [
-            {
-                "albumName": "ssssssss",
-                "length": 111111,
-                "artistName": "sssssss",
-                "title": "sssss"
-            },
-            {
-                "albumName": "a",
-                "length": 1111,
-                "artistName": "a",
-                "title": "a"
-            }
-        ]
+        "name": "asdf",
+        "songList": [{
+            "albumName": "asa",
+            "length": 100,
+            "artistName": "as",
+            "title": "as"
+        }]
     }]
 }
