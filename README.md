@@ -26,6 +26,5 @@ This project is of interest to me because I love music and it’ll be fun to cre
 NOTE: My UML diagram does not include the PlaylistManagerApp class that was the console application
 (I just wanted to leave it in for reference, it is not actually used)
 Changes I would make:
-- I would reduce the coupling so that PlaylistAppGUI only makes an Account and not a playlist and an account
-- I would also increase cohesion by abstracting ActionListner() with lambda
-- 
+- I would reduce the coupling so that PlaylistAppGUI is only dependent on Account and not a playlist and an account
+- I would also increase cohesion by abstracting ActionListener() using lambda
