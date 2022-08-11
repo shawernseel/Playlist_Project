@@ -21,3 +21,11 @@ This project is of interest to me because I love music and it’ll be fun to cre
 ## Phase 4: Task 2
 - As a user, I want to be able to add a song to a playlist
 - As a user, I want to be able to remove a song from a playlist
+
+## Phase 4: Task 3
+NOTE: My UML diagram does not include the PlaylistManagerApp class that was the console application
+(I just wanted to leave it in for reference, it is not actually used)
+Changes I would make:
+- I would reduce the coupling so that PlaylistAppGUI only makes an Account and not a playlist and an account
+- I would also increase cohesion by abstracting ActionListner() with lambda
+- 

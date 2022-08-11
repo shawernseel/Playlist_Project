@@ -32,6 +32,10 @@ public class PlaylistAppGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private Account account;
+    private Playlist playlist;
+
+    private ImageIcon musicBanner;
     private JPanel panel;
     private JPanel songsPanel;
     private JPanel changingPanel;
@@ -42,18 +46,15 @@ public class PlaylistAppGUI extends JFrame {
     private JLabel label;
     private JTextField textField;
     private JButton button;
-    private Account account;
-    private Playlist playlist;
-    private ImageIcon musicBanner;
 
-    JLabel songNameLabel;
-    JTextField songNameField;
-    JLabel artistNameLabel;
-    JTextField artistNameField;
-    JLabel albumNameLabel;
-    JTextField albumNameField;
-    JLabel lengthLabel;
-    JTextField lengthField;
+    private JLabel songNameLabel;
+    private JTextField songNameField;
+    private JLabel artistNameLabel;
+    private JTextField artistNameField;
+    private JLabel albumNameLabel;
+    private JTextField albumNameField;
+    private JLabel lengthLabel;
+    private JTextField lengthField;
 
     // EFFECTS: creates a new playlist application
     public PlaylistAppGUI() {
