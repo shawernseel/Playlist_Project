@@ -9,7 +9,7 @@ This project is of interest to me because I love music and it’ll be fun to cre
 
 
 ## User Stories
-- As a user, I want to be able to name and create a playlist
+- As a user, I want to be able to name and create a playlist 
 - As a user, I want to be able to add a song to a playlist
 - As a user, I want to be able to remove a song from a playlist 
 - As a user, I want to be able to remove a playlist
